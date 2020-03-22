@@ -33,10 +33,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        int numberOfCoffees = 3;
-
-        display(numberOfCoffees);
-        displayPrice(numberOfCoffees*5);
+        displayPrice(quantity*5);
     }
 
     /**
@@ -53,5 +50,19 @@ public class MainActivity extends AppCompatActivity {
     private void displayPrice(int number) {
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+
+    /**
+     * These methods make the plus and minus buttons make the quantity go up and down
+     */
+    int quantity = 2;
+    public void increment(View view) {
+        quantity = quantity + 1;
+        display(quantity);
+    }
+
+    public void decrement(View view) {
+        quantity = quantity - 1;
+        display(quantity);
     }
 }
